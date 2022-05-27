@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap" rel="stylesheet">
+
+    <title>Frontend Mentor | Article preview component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            display: grid;
+            place-content: center;
+            height: 100vh;
+            font-family: 'Manrope', sans-serif;
+        }
+        
+        .container {
+            width: 375px;
+            font-size: 13px;
+            position: relative;
+        }
+        
+        .sharer {
+            display: none;
+        }
+        
+        .sharer>div:first-child {
+            color: #9eafc2;
+            letter-spacing: 5px;
+        }
+        
+        .share {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 20px;
+            gap: 5px;
+            display: flex;
+            position: absolute;
+            top: calc(100% - 30px);
+            left: 0;
+            background-color: hsl(217, 19%, 35%);
+            transform: translateY(-100%)
+        }
+        
+        .comment {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .human {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin: 20px;
+        }
+        
+        .images {
+            width: 375px;
+            height: 250px;
+        }
+        
+        .btn {
+            z-index: 1;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            margin-left: auto;
+            margin-right: 20px;
+        }
+        
+        .attribution {
+            font-size: 11px;
+            text-align: center;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        .attribution a {
+            color: hsl(228, 45%, 44%);
+        }
+        
+        @media (min-width:600px) {
+            body {
+                background-color: hsl(210, 46%, 95%);
+                color: hsl(217, 19%, 35%);
+            }
+            .container {
+                background-color: #fff;
+                display: flex;
+                align-items: center;
+                width: 768px;
+                height: 275px;
+                border-radius: 10px;
+            }
+            .share {
+                position: absolute;
+                top: 60%;
+                left: 80%;
+                /* transform: translate(-20%, -50%); */
+                width: 250px;
+                border-radius: 20px;
+            }
+            .images {
+                border-radius: 10px 0 0 10px;
+                height: 275px;
+            }
+            h1 {
+                margin-left: 20px;
+            }
+            p {
+                margin-left: 20px;
+            }
+            .box>h2 {
+                margin-left: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img class="images" src="images/drawers.jpg">
+        <div>
+            <h1> Shift the overall look and feel by adding these wonderful touches to furniture in your home</h1>
+            <p>Ever been in a room and felt like something was missing? Perhaps it felt slightly bare and uninviting. I’ve got some simple tips to help you make any room feel complete. </p>
+            <div class="comment">
+                <img class="human" src="images/avatar-michelle.jpg">
+                <div class="box">
+                    <h2> Michelle Appleton</h2>
+                    <p>28 Jun 2020 Share</p>
+                </div>
+                <button class="btn"><img  src="images/icon-share.svg" width="15" height="13"></button>
+            </div>
+            <div class="sharer ">
+                <div>SHARE</div>
+                <img src="images/icon-facebook.svg">
+                <img src="images/icon-twitter.svg">
+                <img src="images/icon-pinterest.svg">
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">Your Name Here</a>.
+    </div>
+    <script>
+        document.querySelector(".btn").addEventListener("click", () => {
+            sharer = document.querySelector(".sharer")
+            if (sharer.style.display == "none") {
+                sharer.style.display = "flex"
+                sharer.classList.add("share")
+                document.querySelector(".btn").style.backgroundColor = "hsl(214, 17%, 51%"
+                document.querySelector(".btn img").src = "images/icon-share-active.svg"
+            } else {
+                sharer.style.display = "none"
+                sharer.classList.remove("share")
+                document.querySelector(".btn").style.backgroundColor = null
+                document.querySelector(".btn img").src = "images/icon-share.svg"
+
+            }
+
+
+        })
+    </script>
+</body>
+
+</html>
